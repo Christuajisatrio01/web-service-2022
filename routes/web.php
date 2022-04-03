@@ -14,5 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/resume',function(){
+    return view('resume');
+});
+
+Route::get('/portfolio',function(){
+    return view('portfolio');
+});
+
+Route::get('/contact',function(){
+    return view('contact');
+});
+
+Route::get('/link', function(){
+    return view('home');
+});
+
+Route::get('/tes', function () {
+    echo 'dari url coba';
+});
+
+Route::get('/about',function(){
+    return view('about');
+});
+
+Route::view('welcome', 'welcome');
+
+route::get('/mahasiswa/{nama}', function ($nama){
+    return "Nama Mahasiswa : $nama";
 });
