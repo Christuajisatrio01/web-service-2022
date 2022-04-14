@@ -13,20 +13,29 @@
                         <div class="card-header bg-secondary">
                             <h3 class="card-title">Tambah Data Mahasiswa</h3>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $errors)
+                                    <li>{{ $errors }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                         <div class="card-body">
-                            <form action="{{ route('mahasiswa.getData') }}" method="post">
+                            <form action="{{ route('mahasiswa.getDataM') }}" method="post">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="nims">Nim</label>
-                                    <input type="text" id="nims" name="nim" class="form-control">
+                                    <input type="number" id="nims" name="nim" value="{{old('nim')}}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="nm">Nama</label>
-                                    <input type="text" id="nm" name="nama_mahasiswa" class="form-control">
+                                    <input type="text" id="nm" name="nama_mahasiswa" value="{{old('nama_mahasiswa')}}" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="smt">Semester</label>
-                                    <input type="text" id="smt" name="semester" class="form-control">
+                                    <input type="number" id="smt" name="semester" value="{{old('semester')}}" class="form-control">
                                 </div>
                                 <!-- <div class="form-group mb-3">
                                 <label for="ss">TEXT</label>

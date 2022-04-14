@@ -35,7 +35,15 @@
                               <td>{{ $row->title }}</td>
                               <td>{{ $row->body }}</td>
                               <td>{{ $row->keyword }}</td>
-                              <td><a href="#"> DELETE |</a> <a href="#"> UPDATE </a></td>
+                              <td>
+                                 <form action=" {{route('delete.blog',$row->id) }}" method="post" class="d-inline" >
+                                 @csrf
+                                 @method('delete')
+                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('yakin ingin Menghapus data?')">Hapus</button>
+                                 </form>
+                                 <a href="{{ url('edit-blog')}}/{{ $row->id }}/edit" class="btn btn-success btn-sm" role="button"> Update</a>
+
+                                 </td>
                            </tr>
                            @endforeach
                         </tbody>

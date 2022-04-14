@@ -55,12 +55,18 @@ Route::view('master','template/master');
 //route untuk mahasiswa
 Route::get('data-mahasiswa', [MahasiswaController::class, 'index']);
 Route::get('add-mahasiswa', [MahasiswaController::class, 'create']);
-Route::post('getData',[MahasiswaController::class,'ambilData'])->name('mahasiswa.getData');
-
+Route::post('getDataM',[MahasiswaController::class,'ambilData'])->name('mahasiswa.getDataM');
+Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('delete-mahasiswa');
+Route::get('edit-mahasiswa/{id}/edit', [MahasiswaController::class, 'edit'])->name('edit.mahasiswa');
+Route::put('edit-mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('update.mahasiswa');
 //Tugas
 Route::get('data-blog', [BlogController::class, 'index']);
 Route::get('add-blog', [BlogController::class, 'create']);
 Route::post('getData',[BlogController::class,'ambilData'])->name('blog.getData');
+Route::delete('delete-blog/{id}', [BlogController::class, 'destroy'])->name('delete-blog');
+Route::get('edit-blog/{id}/edit', [BlogController::class, 'edit'])->name('edit.blog');
+Route::put('edit-blog/{id}', [BlogController::class, 'update'])->name('update.blog');
+Route::delete('delete-blog/{id}', [BlogController::class,'destroy'])->name('delete.blog');
 
-
+Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class,'destroy'])->name('delete.mahasiswa');
 
