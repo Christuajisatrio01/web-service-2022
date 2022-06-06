@@ -70,3 +70,7 @@ Route::delete('delete-blog/{id}', [BlogController::class,'destroy'])->name('dele
 
 Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class,'destroy'])->name('delete.mahasiswa');
 
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
