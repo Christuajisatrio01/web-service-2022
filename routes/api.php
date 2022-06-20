@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\CategoriesController;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +37,12 @@ Route::put('v1/product/{id}', [ProductController::class, 'update']);
 Route::delete('v1/product/{id}', [ProductController::class, 'destroy']);
 
 Route::get('v1/producR', [ProductController::class, 'indexRelasi']);
+
+// untuk tabel Categories tanpa penggunaan resource
+Route::get('v1/categories', [CategoriesController::class, 'index']);
+Route::get('v1/categories/{id}', [CategoriesController::class, 'show']);
+Route::post('v1/categories', [CategoriesController::class, 'store']);
+Route::put('v1/categories/{id}', [CategoriesController::class, 'update']);
+Route::delete('v1/categories/{id}', [CategoriesController::class, 'destroy']);
+//tes relasi antar tabel
+Route::get('v1/categoriR', [CategoriesController::class, 'indexRelasi']);
